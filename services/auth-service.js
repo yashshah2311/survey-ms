@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const addUser = async (body) => {
     try {
         if (await user.findOne({ email: body.email })) {
-            throw 'Email ID: "' + body.email + '" already registered';
+            return generateErrorResponse(body, 'Email ID: "' + body.email + '" already registered', httpStatusCode.UNAUTHORIZED);
         }
         let response = await (new user(body)).save();
         return generateSuccessResponse(response, 'Registration Successfull', httpStatusCode.OK);

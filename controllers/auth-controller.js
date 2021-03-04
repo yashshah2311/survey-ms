@@ -15,7 +15,6 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     try {
-        console.log(JSON.stringify(req.body.data) + "-----12----");
         let userResponse = await authService.authenticate(req.body.data)
         return res.status(userResponse.status_code).send(userResponse)
     } catch (error) {
