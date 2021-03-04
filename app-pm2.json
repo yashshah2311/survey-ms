@@ -1,0 +1,9 @@
+{
+	"apps":[
+		{
+			"name":"survey-ms",
+			"script":"npm",
+			"args":"start"
+		}
+		]
+}

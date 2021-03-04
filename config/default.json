@@ -1,0 +1,9 @@
+{
+    "db_conf": {
+        "host": "127.0.0.1",
+        "mongo_port": 27017,
+        "port": 3001,
+        "default_database": "codenation",
+        "mongo_url": "mongodb+srv://root:root@cluster0.updou.mongodb.net/codenation?retryWrites=true&w=majority"
+    }
+}

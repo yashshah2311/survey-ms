@@ -1,0 +1,6 @@
+{
+    "db_conf": {
+        "port": 4000,
+        "default_database": "other"
+    }
+}
