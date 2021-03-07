@@ -11,7 +11,7 @@ const addUser = async (body) => {
         return generateSuccessResponse(response, 'Registration Successfull', httpStatusCode.OK);
     } catch (error) {
         console.log(error);
-        logger.error('Error while inserting agency', error);
+        logger.error('Error while inserting User', error);
         return generateErrorResponse(error, 'Error while inserting user', httpStatusCode.INTERNAL_SERVER_ERROR);
     }
 }
