@@ -36,8 +36,32 @@ const getTemplate = async (req, res) => {
     }
 }
 
+const updateTemplate = async (req, res) => {
+    try {
+        let response = await templateService.updateTemplate(req.params.templateid,req.body);
+        const statusCode = response.status_code || httpStatusCode.OK;
+        return res.status(statusCode).send(response);
+    } catch (error) {
+        console.log(error);
+        res.status(httpStatusCode.INTERNAL_SERVER_ERROR).send(generateSendErrorResponse(error, 'Error while fething unActive User list'))
+    }
+}
+
+const deleteTemplate = async (req, res) => {
+    try {
+        let response = await templateService.deleteTemplate(req.params.templateid, req.body);
+        const statusCode = response.status_code || httpStatusCode.OK;
+        return res.status(statusCode).send(response);
+    } catch (error) {
+        console.log(error);
+        res.status(httpStatusCode.INTERNAL_SERVER_ERROR).send(generateSendErrorResponse(error, 'Error while fething match list'))
+    }
+}
+
 module.exports = {
     saveTemplate,
     getTemplates,
-    getTemplate
+    getTemplate,
+    updateTemplate,
+    deleteTemplate
 }
