@@ -18,10 +18,10 @@ const addUser = async (body) => {
 
 const authenticate = async ({ email, password }) => {
     try {
-        let response = await user.findOne({ email }, { email:1,password:1 });
+        let response = await user.findOne({ email }, { email:1,password:1, userid: 1 });
         if (response) {
             if(bcrypt.compareSync(password, response.password)){
-                return generateSuccessResponse({email:response['email']}, 'User Authentication Successfull', httpStatusCode.OK);
+                return generateSuccessResponse({userid:response['userid']}, 'User Authentication Successfull', httpStatusCode.OK);
             }else {
                 return generateErrorResponse({email:response['email']}, 'User Authentication Not Successfull', httpStatusCode.UNAUTHORIZED);
             }
