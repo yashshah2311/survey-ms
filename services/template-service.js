@@ -20,7 +20,7 @@ const getTemplateByUserId = async (id) => {
         let objectId = await user.findOne({ userid: id, is_delete: false }, { _id: 1 })
         // console.log(objectId);
         let response
-        if (id) response = await template.find({ userid: objectId['_id'], is_delete: false }, { _id: 1, templateid: 1, is_delete: 1, formHeading: 1});
+        if (id) response = await template.find({ userid: objectId['_id'], is_delete: false }, { _id: 1, templateid: 1, is_delete: 1, formHeading: 1, formColor: 1});
         else response = await template.find();
         return generateSuccessResponse(response, 'Template List found', httpStatusCode.OK);
     } catch (error) {
