@@ -18,9 +18,9 @@ const save = async (body, id) => {
 const getTemplateByUserId = async (id) => {
     try {
         let objectId = await user.findOne({ userid: id, is_delete: false }, { _id: 1 })
-        console.log(objectId);
+        // console.log(objectId);
         let response
-        if (id) response = await template.find({ userid: objectId['_id'], is_delete: false }, { _id: 1, templateid: 1, is_delete: 1, formHeading: 1});
+        if (id) response = await template.find({ userid: objectId['_id'], is_delete: false }, { _id: 1, templateid: 1, is_delete: 1, formHeading: 1, formColor: 1});
         else response = await template.find();
         return generateSuccessResponse(response, 'Template List found', httpStatusCode.OK);
     } catch (error) {
@@ -33,7 +33,7 @@ const getTemplateByUserId = async (id) => {
 const getTemplateByTemplateId = async (id) => {
     try {
         let response
-        if (id) response = await template.find({ templateid: id, is_delete: false });
+        if (id) response = await template.findOne({ templateid: id, is_delete: false });
         else response = await template.find();
         return generateSuccessResponse(response, 'Template List found', httpStatusCode.OK);
     } catch (error) {
